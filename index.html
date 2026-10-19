@@ -312,6 +312,91 @@
       margin-top: 40px;
     }
 
+    /* CLICKABLE FEATURED PROJECT */
+
+    .project-featured {
+      display: block;
+      border: 1px solid #D8CCB7;
+      background: rgba(255, 255, 255, 0.2);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+
+    .project-featured:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(24, 58, 50, 0.12);
+    }
+
+    .project-preview {
+      min-height: 235px;
+      padding: 25px;
+      background: var(--green);
+      color: var(--beige);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .preview-label {
+      color: var(--sage);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .preview-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.25;
+      max-width: 380px;
+      margin: 18px 0;
+    }
+
+    .preview-details {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .preview-details span {
+      border: 1px solid rgba(241, 233, 216, 0.35);
+      padding: 5px 9px;
+      font-size: 10px;
+      color: #D5D9CD;
+    }
+
+    .project-featured-copy {
+      padding: 25px;
+    }
+
+    .project-featured-copy .number {
+      color: #718675;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .project-featured-copy h3 {
+      font-size: 23px;
+      margin: 10px 0;
+    }
+
+    .project-featured-copy p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-open {
+      display: inline-block;
+      margin-top: 20px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--gold);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* SECOND PROJECT PLACEHOLDER */
+
     .project-empty {
       min-height: 210px;
       padding: 30px;
@@ -598,24 +683,50 @@
 
         <div class="project-grid">
 
-          <article class="project-empty">
-            <div>
-              <p class="number">PROJECT 01</p>
-              <h3>Business Intelligence</h3>
-              <p>Power BI reports and business insights.</p>
+          <a href="life-expectancy.html" class="project-featured">
+            <div class="project-preview">
+              <p class="preview-label">POWER BI · FEATURED PROJECT</p>
+
+              <div>
+                <p class="preview-title">
+                  World Life Expectancy & Healthcare Spending
+                </p>
+
+                <div class="preview-details">
+                  <span>Healthcare Spending</span>
+                  <span>Life Expectancy</span>
+                  <span>2000–2023</span>
+                </div>
+              </div>
+
+              <p class="preview-label">
+                DATA ANALYSIS & VISUAL STORYTELLING ↗
+              </p>
             </div>
 
-            <p class="coming">Projects coming soon</p>
-          </article>
+            <div class="project-featured-copy">
+              <p class="number">PROJECT 01</p>
+              <h3>Does spending more lead to longer lives?</h3>
+              <p>
+                An exploration of healthcare spending, life
+                expectancy, regional disparities, and
+                diminishing returns.
+              </p>
+              <span class="project-open">EXPLORE PROJECT ↗</span>
+            </div>
+          </a>
 
           <article class="project-empty">
             <div>
               <p class="number">PROJECT 02</p>
-              <h3>Data Visualization</h3>
-              <p>Tableau dashboards and visual analysis.</p>
+              <h3>More coming soon.</h3>
+              <p>
+                More projects in business intelligence and
+                data visualization are in development.
+              </p>
             </div>
 
-            <p class="coming">Projects coming soon</p>
+            <p class="coming">IN PROGRESS</p>
           </article>
 
         </div>
