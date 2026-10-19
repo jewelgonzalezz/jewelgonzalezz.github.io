@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Life Expectancy & Healthcare Spending | Jewel</title>
+  <meta name="description" content="A Power BI case study exploring healthcare spending and life expectancy across countries from 2000 to 2023.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #183A32;
+      --green-light: #244A40;
+      --beige: #F1E9D8;
+      --beige-dark: #E5D9C2;
+      --sage: #A7B5A0;
+      --gold: #B59A66;
+      --text: #263B32;
+      --muted: #65736A;
+      --line: #D8CCB7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--beige);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1000px, 86%);
+      margin: 0 auto;
+    }
+
+    nav {
+      background: var(--green);
+      color: var(--beige);
+    }
+
+    .nav-inner {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 3px;
+    }
+
+    .brand span {
+      color: var(--sage);
+    }
+
+    .back-link {
+      font-size: 12px;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .hero {
+      background: var(--green);
+      color: var(--beige);
+      padding: 85px 0 90px;
+    }
+
+    .eyebrow, .section-label {
+      color: #829B83;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 61px);
+      max-width: 800px;
+      margin: 22px 0;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      color: #D5D9CD;
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .tags span {
+      border: 1px solid rgba(241, 233, 216, 0.3);
+      padding: 5px 11px;
+      font-size: 11px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: var(--beige);
+      color: var(--green);
+      border: 1px solid var(--beige);
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--beige);
+    }
+
+    .button-outline:hover {
+      color: var(--green);
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      font-size: clamp(29px, 4vw, 40px);
+      margin: 12px 0 22px;
+    }
+
+    .section-label {
+      color: #637D6A;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .question-box {
+      background: var(--beige-dark);
+      border-left: 3px solid var(--gold);
+      padding: 25px;
+      margin-top: 30px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      line-height: 1.6;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .detail-card {
+      border: 1px solid var(--line);
+      padding: 22px;
+    }
+
+    .detail-card h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .detail-card p {
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .findings-section {
+      background: var(--beige-dark);
+    }
+
+    .finding-list {
+      display: grid;
+      gap: 0;
+      margin-top: 25px;
+    }
+
+    .finding {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 18px;
+      padding: 24px 0;
+      border-bottom: 1px solid #CEC1AA;
+    }
+
+    .finding-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      color: #718675;
+    }
+
+    .finding h3 {
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .finding p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .report-section {
+      background: var(--green);
+      color: var(--beige);
+    }
+
+    .report-section .section-label {
+      color: var(--sage);
+    }
+
+    .report-section .intro {
+      color: #D5D9CD;
+    }
+
+    .report-preview {
+      background: var(--beige);
+      color: var(--green);
+      padding: 35px;
+      margin-top: 30px;
+      border: 1px solid var(--gold);
+    }
+
+    .report-preview .preview-label {
+      color: #637D6A;
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .report-preview h3 {
+      font-size: clamp(25px, 4vw, 36px);
+      margin: 18px 0;
+    }
+
+    .report-preview p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .report-preview .button {
+      margin-top: 22px;
+      background: var(--green);
+      color: var(--beige);
+      border-color: var(--green);
+    }
+
+    .report-preview .button:hover {
+      background: var(--green-light);
+    }
+
+    .note {
+      margin-top: 25px;
+      color: #D5D9CD;
+      font-size: 12px;
+    }
+
+    footer {
+      background: var(--green);
+      color: #C0C9BD;
+      border-top: 1px solid rgba(241, 233, 216, 0.2);
+      padding: 24px 0;
+      font-size: 11px;
+    }
+
+    @media (max-width: 650px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .finding {
+        grid-template-columns: 38px 1fr;
+        gap: 12px;
+      }
+
+      .report-preview {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">J<span>.</span></a>
+      <a href="index.html#projects" class="back-link">← Back to portfolio</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Featured project · Power BI</p>
+
+      <h1>World Life Expectancy & Healthcare Spending Overview</h1>
+
+      <p class="hero-description">
+        An exploratory data analysis examining the relationship
+        between healthcare spending and life expectancy across
+        countries from 2000 to 2023. The project investigates
+        whether higher spending is associated with longer lives
+        and where that relationship begins to break down.
+      </p>
+
+      <div class="tags">
+        <span>Power BI</span>
+        <span>Power Query</span>
+        <span>DAX</span>
+        <span>Our World in Data</span>
+      </div>
+
+      <div class="actions">
+        <a class="button" href="#report">VIEW PROJECT REPORT ↓</a>
+        <a class="button button-outline" href="https://github.com/jewelgonzalezz/jewelgonzalezz.github.io/raw/refs/heads/main/Life%20Expectancy%20by%20Spending.pbix">DOWNLOAD PBIX ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="container">
+        <p class="section-label">01 / OVERVIEW</p>
+        <h2 class="section-heading">The question behind the data.</h2>
+
+        <p class="intro">
+          Healthcare spending is often discussed as an important
+          factor in population health. But spending more does not
+          necessarily mean getting proportionally better outcomes.
+          This project compares spending levels with life expectancy
+          to explore the patterns, differences, and exceptions
+          across countries and regions.
+        </p>
+
+        <div class="question-box">
+          Does spending more on healthcare lead to longer lives,
+          and where does that relationship break down?
+        </div>
+
+        <div class="details-grid">
+          <article class="detail-card">
+            <h3>Tools</h3>
+            <p>Power BI, Power Query, and DAX.</p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Data source</h3>
+            <p>Our World in Data (OWID).</p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Time period</h3>
+            <p>2000–2023.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="findings-section">
+      <div class="container">
+        <p class="section-label">02 / KEY FINDINGS</p>
+        <h2 class="section-heading">What the data revealed.</h2>
+
+        <p class="intro">
+          The dashboard compares healthcare spending and life
+          expectancy across spending tiers, countries, and regions.
+        </p>
+
+        <div class="finding-list">
+
+          <article class="finding">
+            <span class="finding-number">01</span>
+            <div>
+              <h3>Diminishing returns on spending</h3>
+              <p>
+                Average life expectancy was 72.3 years in the
+                low-spending tier, 77.2 years in the medium tier,
+                and 81.0 years in the high-spending tier.
+                The difference between the medium and high tiers
+                was under four years despite roughly $3,400 more
+                in spending per person. These are observed
+                associations, not proof of causation.
+              </p>
+            </div>
+          </article>
+
+          <article class="finding">
+            <span class="finding-number">02</span>
+            <div>
+              <h3>The United States stands out</h3>
+              <p>
+                The US spends nearly $10,000 per person on
+                healthcare in this analysis, yet its life
+                expectancy is lower than that of several
+                countries spending considerably less.
+              </p>
+            </div>
+          </article>
+
+          <article class="finding">
+            <span class="finding-number">03</span>
+            <div>
+              <h3>Higher life expectancy at lower spending</h3>
+              <p>
+                Japan and Malta are examples of countries
+                achieving high life expectancy at lower spending
+                levels than the US or Switzerland in the
+                comparison presented.
+              </p>
+            </div>
+          </article>
+
+          <article class="finding">
+            <span class="finding-number">04</span>
+            <div>
+              <h3>Regional disparities remain visible</h3>
+              <p>
+                The dashboard highlights a substantial life
+                expectancy gap in Africa, alongside improvements
+                since approximately 2005.
+              </p>
+            </div>
+          </article>
+
+          <article class="finding">
+            <span class="finding-number">05</span>
+            <div>
+              <h3>The impact of 2020</h3>
+              <p>
+                Life expectancy trends show a dip around 2020
+                across most regions, consistent with the
+                widespread disruption associated with the
+                COVID-19 pandemic.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="section-label">03 / DASHBOARD DESIGN</p>
+        <h2 class="section-heading">From data to visual insights.</h2>
+
+        <p class="intro">
+          The Power BI dashboard brings several perspectives
+          together to make comparisons easier and reveal patterns
+          that may be harder to identify from raw data alone.
+        </p>
+
+        <div class="details-grid">
+          <article class="detail-card">
+            <h3>At-a-glance KPIs</h3>
+            <p>
+              Global average life expectancy of 77.5 years and
+              average healthcare spending per person of
+              approximately $3.07K.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Country comparisons</h3>
+            <p>
+              A comparison of top and bottom life expectancy
+              performers alongside their healthcare spending.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Spending tiers</h3>
+            <p>
+              A summary table and donut chart comparing low-,
+              medium-, and high-spending groups.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Spending vs. lifespan</h3>
+            <p>
+              A country-level scatter plot showing the
+              relationship between healthcare spending and
+              life expectancy, colored by region.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Regional trends</h3>
+            <p>
+              A line chart tracking life expectancy by region
+              from 2000 through 2023.
+            </p>
+          </article>
+
+          <article class="detail-card">
+            <h3>Top spenders</h3>
+            <p>
+              A comparison of countries with the highest
+              healthcare spending per person.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="report-section" id="report">
+      <div class="container">
+        <p class="section-label">04 / EXPLORE THE PROJECT</p>
+        <h2 class="section-heading">Take a closer look.</h2>
+
+        <p class="intro">
+          Read the report for the project overview and findings,
+          or download the Power BI file to explore the report
+          yourself in Power BI Desktop.
+        </p>
+
+        <div class="report-preview">
+          <p class="preview-label">PROJECT REPORT · POWER BI</p>
+
+          <h3>World Life Expectancy & Healthcare Spending Overview</h3>
+
+          <p>
+            Explore how healthcare spending relates to life
+            expectancy across countries, and where the relationship
+            differs between regions.
+          </p>
+
+          <a class="button" href="life-expectancy-report.pdf" target="_blank" rel="noopener">
+            OPEN PDF REPORT ↗
+          </a>
+
+          <a class="button" href="https://github.com/jewelgonzalezz/jewelgonzalezz.github.io/raw/refs/heads/main/Life%20Expectancy%20by%20Spending.pbix">
+            DOWNLOAD POWER BI FILE ↓
+          </a>
+        </div>
+
+        <p class="note">
+          The PBIX file requires Power BI Desktop. Findings describe
+          observed relationships and should not be interpreted as
+          evidence that spending alone causes changes in life expectancy.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Jewel · Data & Business Intelligence
+    </div>
+  </footer>
+
+</body>
+</html>
