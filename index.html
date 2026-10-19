@@ -100,7 +100,6 @@
     .hero {
       background: var(--green);
       color: var(--beige);
-      position: relative;
       overflow: hidden;
     }
 
@@ -181,74 +180,17 @@
       padding-bottom: 4px;
     }
 
-    /* DECORATIVE VISUAL */
+    /* PROFILE PHOTO */
 
-    .visual {
-      position: relative;
-      width: 100%;
-      max-width: 290px;
+    .profile-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid var(--sage);
       justify-self: end;
-      aspect-ratio: 0.9;
-      border: 1px solid rgba(241, 233, 216, 0.25);
-      padding: 23px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .visual-label {
-      color: var(--sage);
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .visual-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 24px;
-      color: var(--beige);
-      margin-top: 8px;
-    }
-
-    .chart-art {
-      height: 130px;
-      display: flex;
-      align-items: end;
-      gap: 12px;
-      border-bottom: 1px solid rgba(241, 233, 216, 0.4);
-      padding: 0 10px;
-      background-image: linear-gradient(
-        to bottom,
-        transparent 32%,
-        rgba(241, 233, 216, 0.10) 33%,
-        transparent 34%,
-        transparent 65%,
-        rgba(241, 233, 216, 0.10) 66%,
-        transparent 67%
-      );
-    }
-
-    .bar {
-      flex: 1;
-      background: var(--sage);
-      opacity: 0.85;
-    }
-
-    .bar:nth-child(1) { height: 32%; }
-    .bar:nth-child(2) { height: 54%; }
-    .bar:nth-child(3) { height: 43%; }
-    .bar:nth-child(4) { height: 76%; }
-    .bar:nth-child(5) {
-      height: 94%;
-      background: var(--gold);
-    }
-
-    .visual-footer {
-      display: flex;
-      justify-content: space-between;
-      color: #D5D9CD;
-      font-size: 10px;
-      letter-spacing: 1px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
     }
 
     /* GENERAL SECTIONS */
@@ -423,6 +365,8 @@
       font-size: 14px;
     }
 
+    /* FOOTER */
+
     footer {
       background: var(--green);
       border-top: 1px solid var(--line);
@@ -466,9 +410,10 @@
         padding-bottom: 65px;
       }
 
-      .visual {
-        justify-self: start;
-        max-width: 260px;
+      .profile-photo {
+        justify-self: center;
+        width: 210px;
+        height: 210px;
       }
 
       section {
@@ -551,25 +496,11 @@
         </div>
       </div>
 
-      <div class="visual" aria-label="Decorative data visualization illustration">
-        <div>
-          <p class="visual-label">DATA · CLARITY · INSIGHT</p>
-          <p class="visual-title">Finding the<br>story in data.</p>
-        </div>
-
-        <div class="chart-art" aria-hidden="true">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-
-        <div class="visual-footer">
-          <span>ANALYZE</span>
-          <span>VISUALIZE</span>
-        </div>
-      </div>
+      <img
+        src="4r_%281%29%20%282%29.JPG"
+        alt="Jewel's profile photo"
+        class="profile-photo"
+      >
 
     </div>
   </header>
@@ -652,6 +583,7 @@
           <div>
             <p class="section-label">03 / SELECTED WORK</p>
             <h2 class="section-heading">Projects & analysis.</h2>
+
             <p class="section-intro">
               A collection of projects exploring data,
               visualization, and business intelligence.
@@ -669,6 +601,7 @@
               <h3>Business Intelligence</h3>
               <p>Power BI reports and business insights.</p>
             </div>
+
             <p class="coming">Projects coming soon</p>
           </article>
 
@@ -678,6 +611,7 @@
               <h3>Data Visualization</h3>
               <p>Tableau dashboards and visual analysis.</p>
             </div>
+
             <p class="coming">Projects coming soon</p>
           </article>
 
@@ -696,7 +630,7 @@
           intelligence, reporting, and data visualization.
         </p>
 
-        <!-- Replace the # below with your LinkedIn profile URL. -->
+        <!-- Replace # with your LinkedIn profile URL. -->
         <a href="#" class="contact-link">
           Connect on LinkedIn ↗
         </a>
