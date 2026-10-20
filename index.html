@@ -4,43 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Jewel | BI & Data Visualization</title>
-  <meta name="description" content="Jewel's portfolio in business intelligence, data analytics, and data visualization.">
+  <meta name="description" content="Jewel's data analytics portfolio featuring Power BI dashboards, data visualization, and analytical projects.">
+  <title>Jewel | Data Analytics Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --green: #183A32;
-      --green-light: #244A40;
-      --beige: #F1E9D8;
-      --beige-dark: #E5D9C2;
-      --sage: #A7B5A0;
-      --gold: #B59A66;
-      --text: #263B32;
-      --muted: #65736A;
-      --line: rgba(241, 233, 216, 0.20);
+      --forest: #203d30;
+      --forest-light: #315744;
+      --sage: #a6b39a;
+      --sage-light: #e5e9de;
+      --cream: #f7f5ee;
+      --beige: #e9e2d2;
+      --brass: #ae8b55;
+      --ink: #26362d;
+      --muted: #68756b;
+      --white: #fffefa;
+      --border: #dedfd4;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
     body {
-      background: var(--beige);
-      color: var(--text);
       font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -48,498 +49,589 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
-      width: min(1100px, 84%);
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
     /* NAVIGATION */
 
     nav {
-      background: var(--green);
-      color: var(--beige);
-      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 245, 238, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
-      min-height: 82px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 24px;
     }
 
-    .brand {
-      font-size: 19px;
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 3px;
-    }
-
-    .brand span {
-      color: var(--sage);
+      color: var(--forest);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
       align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: 13px;
-      color: #DEDCCE;
+      font-size: 0.9rem;
+      color: var(--muted);
       transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--gold);
+      color: var(--brass);
     }
 
     /* HERO */
 
     .hero {
-      background: var(--green);
-      color: var(--beige);
-      overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(166, 179, 154, 0.24), transparent 30%),
+        var(--cream);
     }
 
-    .hero-inner {
-      min-height: 510px;
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: center;
-      padding-top: 85px;
-      padding-bottom: 90px;
+    .hero-content {
+      max-width: 800px;
     }
 
     .eyebrow {
-      color: var(--sage);
-      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: var(--brass);
+      font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--brass);
+    }
+
     h1, h2, h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 400;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
       line-height: 1.2;
     }
 
-    h1 {
-      max-width: 760px;
-      font-size: clamp(42px, 6vw, 72px);
-      letter-spacing: -1.5px;
-      margin: 25px 0;
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      color: var(--forest);
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
     }
 
-    h1 em {
-      color: var(--sage);
-      font-weight: 400;
+    .hero h1 span {
+      color: var(--brass);
+      font-style: italic;
     }
 
     .hero-description {
-      max-width: 590px;
-      color: #D5D9CD;
-      font-size: 15px;
-      line-height: 1.9;
+      max-width: 650px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
     }
 
-    .hero-actions {
+    .button-row {
       display: flex;
-      align-items: center;
-      gap: 28px;
       flex-wrap: wrap;
-      margin-top: 35px;
+      gap: 14px;
     }
 
     .button {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      padding: 13px 21px;
-      background: var(--beige);
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      border: 1px solid var(--beige);
-      transition: 0.2s ease;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border: 1px solid var(--forest);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
     .button:hover {
-      background: var(--sage);
-      border-color: var(--sage);
+      transform: translateY(-2px);
     }
 
-    .text-link {
-      font-size: 12px;
-      color: var(--beige);
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 4px;
+    .button-primary {
+      background: var(--forest);
+      color: var(--white);
     }
 
-    /* GENERAL SECTIONS */
+    .button-primary:hover {
+      background: var(--forest-light);
+    }
+
+    .button-outline {
+      color: var(--forest);
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      background: var(--sage-light);
+    }
+
+    /* SECTION SHARED STYLES */
 
     section {
-      padding: 95px 0;
-      scroll-margin-top: 25px;
+      padding: 100px 0;
     }
 
     .section-heading {
-      font-size: clamp(32px, 4vw, 43px);
-      margin: 14px 0 20px;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      max-width: 620px;
-      font-size: 14px;
-      line-height: 1.9;
+      max-width: 700px;
+      margin-bottom: 45px;
     }
 
     .section-label {
-      color: #637D6A;
-      font-size: 11px;
+      display: block;
+      color: var(--brass);
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--forest);
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 620px;
     }
 
     /* ABOUT */
 
+    #about {
+      background: var(--white);
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 65px;
+      gap: 80px;
       align-items: center;
     }
 
-    .about-photo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding-top: 12px;
+    .profile-frame {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
     }
 
-    .profile-photo {
+    .profile-frame::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border: 1px solid var(--brass);
+      border-radius: 4px;
+    }
+
+    .profile-image {
+      position: relative;
       display: block;
-      width: 280px;
-      height: 280px;
-      max-width: 100%;
-      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      object-position: center 25%;
-      border: 3px solid var(--sage);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      object-position: 25% center;
+      border-radius: 4px;
+      background: var(--beige);
+    }
+
+    .about-copy h2 {
+      font-size: clamp(2.2rem, 4vw, 3.3rem);
+      color: var(--forest);
+      margin-bottom: 24px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
     .about-note {
-      border-left: 2px solid var(--gold);
-      padding: 5px 0 5px 23px;
-      color: var(--muted);
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .about-copy {
-      margin-top: 17px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.95;
+      margin-top: 26px;
+      padding: 18px 22px;
+      border-left: 3px solid var(--brass);
+      background: var(--cream);
+      color: var(--forest);
+      font-size: 0.95rem;
     }
 
     /* SKILLS */
 
-    .skills-section {
-      background: var(--beige-dark);
+    #skills {
+      background: var(--sage-light);
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 35px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .skill {
-      border: 1px solid #D1C5AE;
-      padding: 24px 20px;
-      min-height: 115px;
-      transition: border-color 0.2s ease;
+    .skill-card {
+      padding: 28px 22px;
+      background: var(--white);
+      border: 1px solid rgba(32, 61, 48, 0.08);
+      border-radius: 5px;
+      transition: transform 0.2s ease;
     }
 
-    .skill:hover {
-      border-color: var(--green);
+    .skill-card:hover {
+      transform: translateY(-4px);
     }
 
-    .skill h3 {
-      font-size: 19px;
-      margin-bottom: 8px;
+    .skill-number {
+      display: block;
+      color: var(--brass);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
-    .skill p {
+    .skill-card h3 {
+      font-size: 1.35rem;
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
       color: var(--muted);
-      font-size: 12px;
+      font-size: 0.9rem;
     }
 
     /* PROJECTS */
 
-    .projects-section {
-      background: var(--beige);
+    #projects {
+      background: var(--cream);
     }
-
-    .projects-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 25px;
-    }
-
-    .projects-count {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      white-space: nowrap;
-      padding-bottom: 10px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 40px;
-    }
-
-    /* CLICKABLE FEATURED PROJECT */
 
     .project-featured {
       display: block;
-      border: 1px solid #D8CCB7;
-      background: rgba(255, 255, 255, 0.2);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
       overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .project-featured:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(24, 58, 50, 0.12);
+      box-shadow: 0 18px 40px rgba(32, 61, 48, 0.10);
     }
 
-    .project-preview {
-      min-height: 235px;
-      padding: 25px;
-      background: var(--green);
-      color: var(--beige);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .project-image-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #e6e5d9;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-dashboard-preview {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .project-featured:hover .project-dashboard-preview {
+      transform: scale(1.015);
     }
 
     .preview-label {
-      color: var(--sage);
-      font-size: 10px;
-      letter-spacing: 2px;
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      padding: 7px 12px;
+      background: rgba(32, 61, 48, 0.94);
+      color: var(--white);
+      border-radius: 3px;
+      font-size: 0.7rem;
       font-weight: 700;
-    }
-
-    .preview-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.25;
-      max-width: 380px;
-      margin: 18px 0;
-    }
-
-    .preview-details {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .preview-details span {
-      border: 1px solid rgba(241, 233, 216, 0.35);
-      padding: 5px 9px;
-      font-size: 10px;
-      color: #D5D9CD;
-    }
-
-    .project-featured-copy {
-      padding: 25px;
-    }
-
-    .project-featured-copy .number {
-      color: #718675;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .project-featured-copy h3 {
-      font-size: 23px;
-      margin: 10px 0;
-    }
-
-    .project-featured-copy p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .project-open {
-      display: inline-block;
-      margin-top: 20px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--gold);
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    /* SECOND PROJECT PLACEHOLDER */
-
-    .project-empty {
-      min-height: 210px;
-      padding: 30px;
-      border: 1px solid #D8CCB7;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.16);
-    }
-
-    .project-empty .number {
-      color: #718675;
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    .project-empty h3 {
-      font-size: 25px;
-      margin: 14px 0 8px;
-    }
-
-    .project-empty p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .project-empty .coming {
-      color: #718675;
-      font-size: 10px;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 25px;
+    }
+
+    .project-content {
+      padding: 32px;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--forest);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .project-content h3 {
+      color: var(--forest);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin-bottom: 14px;
+    }
+
+    .project-description {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .project-stat {
+      padding: 18px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .project-stat-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .project-stat strong {
+      color: var(--forest);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+    }
+
+    .project-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-tools {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--forest);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .project-link span {
+      transition: transform 0.2s ease;
+    }
+
+    .project-featured:hover .project-link span {
+      transform: translate(3px, -3px);
+    }
+
+    .other-projects {
+      margin-top: 26px;
+      padding: 24px;
+      border: 1px dashed var(--border);
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .other-projects strong {
+      color: var(--forest);
     }
 
     /* CONTACT */
 
-    .contact-section {
-      background: var(--green);
-      color: var(--beige);
+    #contact {
+      background: var(--forest);
+      color: var(--white);
     }
 
-    .contact-section .section-label {
-      color: var(--sage);
+    #contact .section-label {
+      color: #d6bc8a;
     }
 
-    .contact-section .section-intro {
-      color: #D5D9CD;
+    #contact .section-heading h2 {
+      color: var(--white);
     }
 
-    .contact-link {
-      display: inline-block;
-      margin-top: 30px;
-      color: var(--beige);
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 5px;
-      font-size: 14px;
+    #contact .section-heading p {
+      color: #d0d9d0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .contact-links .button {
+      border-color: #d5ddcf;
+      color: var(--white);
+    }
+
+    .contact-links .button:hover {
+      background: var(--forest-light);
+    }
+
+    .contact-email {
+      margin-top: 24px;
+      color: #d0d9d0;
+      font-size: 0.92rem;
     }
 
     /* FOOTER */
 
     footer {
-      background: var(--green);
-      border-top: 1px solid var(--line);
-      color: #C0C9BD;
-      padding: 24px 8%;
-      font-size: 11px;
+      padding: 24px 0;
+      background: #192f25;
+      color: #c6d0c6;
+      font-size: 0.82rem;
     }
 
     .footer-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    /* MOBILE */
+    /* RESPONSIVE */
 
-    @media (max-width: 760px) {
-      .container {
-        width: 88%;
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
       }
 
+      .profile-frame {
+        width: min(300px, 85%);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
       .nav-inner {
-        min-height: 75px;
-        flex-wrap: wrap;
-        padding: 18px 0;
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .nav-links {
         gap: 17px;
-        flex-wrap: wrap;
       }
 
       .nav-links a {
-        font-size: 12px;
+        font-size: 0.82rem;
       }
 
-      .hero-inner {
-        min-height: auto;
-        padding-top: 70px;
-        padding-bottom: 70px;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .profile-photo {
-        width: 230px;
-        height: 230px;
+      .hero h1 {
+        font-size: 3rem;
       }
 
       .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .project-grid {
         grid-template-columns: 1fr;
       }
 
-      .projects-header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0;
+      .project-content {
+        padding: 22px;
+      }
+
+      .project-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .project-dashboard-preview {
+        aspect-ratio: 4 / 3;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .button-row,
+      .contact-links {
+        width: 100%;
       }
 
       .footer-inner {
         flex-direction: column;
-        gap: 5px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 39px;
+        align-items: flex-start;
       }
     }
   </style>
@@ -547,217 +639,272 @@
 
 <body>
 
+  <!-- NAVIGATION -->
   <nav>
     <div class="container nav-inner">
-      <a href="#home" class="brand">J<span>.</span></a>
+      <a class="logo" href="#home">Jewel.</a>
 
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#skills">Expertise</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
+  <!-- HERO -->
   <header class="hero" id="home">
-    <div class="container hero-inner">
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Data Analytics Portfolio</span>
 
-      <div>
-        <p class="eyebrow">Machine Learning Graduate · Data & BI</p>
-
-        <h1>
-          Turning data into
-          <em>meaningful insights.</em>
-        </h1>
+        <h1>Turning data into <span>meaningful</span> insights.</h1>
 
         <p class="hero-description">
-          I'm Jewel, an ML graduate interested in business
-          intelligence and data visualization. I aim to make
-          complex information clearer through thoughtful analysis
-          and effective visual storytelling.
+          Hi, I'm Jewel — a machine learning graduate interested in data
+          analytics, business intelligence, and visual storytelling.
+          I enjoy turning raw information into clear insights that help
+          people understand the bigger picture.
         </p>
 
-        <div class="hero-actions">
-          <a href="#projects" class="button">VIEW MY WORK ↗</a>
-          <a href="#about" class="text-link">A LITTLE ABOUT ME</a>
+        <div class="button-row">
+          <a class="button button-primary" href="#projects">
+            Explore my projects ↗
+          </a>
+
+          <a class="button button-outline" href="#contact">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+
+      <div class="profile-frame">
+        <img
+          class="profile-image"
+          src="4r_(1)%20(2).JPG"
+          alt="Portrait of Jewel"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="about-copy">
+        <span class="section-label">A little about me</span>
+
+        <h2>Curious about the story behind the numbers.</h2>
+
+        <p>
+          My background in machine learning introduced me to the potential
+          of data to uncover patterns, answer questions, and support better
+          decisions.
+        </p>
+
+        <p>
+          I'm currently building my skills in business intelligence and
+          data visualization, with a focus on creating dashboards that make
+          complex information easier to understand.
+        </p>
+
+        <p>
+          I believe good analysis is not just about presenting numbers.
+          It's about asking the right questions, recognizing patterns,
+          and communicating what the data can tell us.
+        </p>
+
+        <div class="about-note">
+          My goal: make data useful, understandable, and meaningful.
         </div>
       </div>
 
     </div>
-  </header>
+  </section>
 
-  <main>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
 
-    <section id="about">
-      <div class="container about-grid">
-
-        <div class="about-photo-wrap">
-          <img
-            src="https://raw.githubusercontent.com/jewelgonzalezz/jewelgonzalezz.github.io/main/4r_%281%29%20%282%29.JPG"
-            alt="Jewel's profile photo"
-            class="profile-photo"
-          >
-        </div>
-
-        <div class="about-content">
-          <p class="section-label">01 / ABOUT</p>
-          <h2 class="section-heading">A little about me.</h2>
-
-          <p class="about-note">
-            Curious about data. Focused on clarity.
-            Interested in turning analysis into decisions.
-          </p>
-
-          <p class="about-copy">
-            With a background in machine learning, I'm developing
-            my skills in business intelligence, data analysis,
-            and visualization. I'm particularly interested in
-            building reports that communicate findings clearly
-            and help people understand what the data is telling them.
-          </p>
-
-          <p class="about-copy">
-            I'm continuing to grow my technical skills and build
-            projects that demonstrate my approach to analytical
-            thinking, reporting, and visual communication.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="skills-section" id="skills">
-      <div class="container">
-
-        <p class="section-label">02 / EXPERTISE</p>
-        <h2 class="section-heading">Tools & capabilities.</h2>
-
-        <p class="section-intro">
-          The areas I'm developing as I work toward business
-          intelligence and data visualization roles.
+      <div class="section-heading">
+        <span class="section-label">My toolkit</span>
+        <h2>Tools I use to explore data.</h2>
+        <p>
+          I'm developing a practical toolkit for working with data,
+          analyzing trends, and communicating insights.
         </p>
-
-        <div class="skills-grid">
-
-          <article class="skill">
-            <h3>Power BI</h3>
-            <p>Business intelligence & reporting</p>
-          </article>
-
-          <article class="skill">
-            <h3>Tableau</h3>
-            <p>Data visualization & storytelling</p>
-          </article>
-
-          <article class="skill">
-            <h3>SQL</h3>
-            <p>Data querying & exploration</p>
-          </article>
-
-          <article class="skill">
-            <h3>Python</h3>
-            <p>Data analysis & programming</p>
-          </article>
-
-        </div>
       </div>
-    </section>
 
-    <section class="projects-section" id="projects">
-      <div class="container">
+      <div class="skills-grid">
 
-        <div class="projects-header">
-          <div>
-            <p class="section-label">03 / SELECTED WORK</p>
-            <h2 class="section-heading">Projects & analysis.</h2>
+        <article class="skill-card">
+          <span class="skill-number">01 / BI</span>
+          <h3>Power BI</h3>
+          <p>
+            Building interactive dashboards, exploring KPIs, and presenting
+            findings through data visualizations.
+          </p>
+        </article>
 
-            <p class="section-intro">
-              A collection of projects exploring data,
-              visualization, and business intelligence.
-            </p>
+        <article class="skill-card">
+          <span class="skill-number">02 / VISUALIZATION</span>
+          <h3>Tableau</h3>
+          <p>
+            Exploring visual analytics and communicating patterns through
+            charts and interactive views.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">03 / DATABASES</span>
+          <h3>SQL</h3>
+          <p>
+            Working with structured data to retrieve, organize, and analyze
+            information.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">04 / PROGRAMMING</span>
+          <h3>Python</h3>
+          <p>
+            Using programming fundamentals and data-focused workflows to
+            explore and work with datasets.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-label">Selected work</span>
+        <h2>Projects built around questions worth asking.</h2>
+        <p>
+          A look at how I explore data, investigate patterns, and turn
+          analysis into something people can understand.
+        </p>
+      </div>
+
+      <!-- FEATURED PROJECT -->
+      <a href="life-expectancy.html" class="project-featured">
+
+        <div class="project-image-wrap">
+          <img
+            src="life-expectancy-report-1.png"
+            alt="Power BI dashboard for World Life Expectancy and Healthcare Spending"
+            class="project-dashboard-preview"
+            loading="lazy"
+          >
+
+          <span class="preview-label">Featured project · Power BI</span>
+        </div>
+
+        <div class="project-content">
+
+          <div class="project-meta">
+            <span class="project-tag">Power BI</span>
+            <span class="project-tag">Power Query</span>
+            <span class="project-tag">DAX</span>
+            <span class="project-tag">Data Visualization</span>
           </div>
 
-          <p class="projects-count">PORTFOLIO IN PROGRESS</p>
-        </div>
+          <h3>World Life Expectancy &amp; Healthcare Spending</h3>
 
-        <div class="project-grid">
+          <p class="project-description">
+            Does spending more on healthcare lead to longer lives?
+            This project explores the relationship between healthcare
+            spending per capita and life expectancy across countries,
+            highlighting global differences, regional trends, and
+            countries that challenge the overall pattern.
+          </p>
 
-          <a href="life-expectancy.html" class="project-featured">
-            <div class="project-preview">
-              <p class="preview-label">POWER BI · FEATURED PROJECT</p>
+          <div class="project-stats">
 
-              <div>
-                <p class="preview-title">
-                  World Life Expectancy & Healthcare Spending
-                </p>
-
-                <div class="preview-details">
-                  <span>Healthcare Spending</span>
-                  <span>Life Expectancy</span>
-                  <span>2000–2023</span>
-                </div>
-              </div>
-
-              <p class="preview-label">
-                DATA ANALYSIS & VISUAL STORYTELLING ↗
-              </p>
+            <div class="project-stat">
+              <span class="project-stat-label">Global average life expectancy</span>
+              <strong>77.5 years</strong>
             </div>
 
-            <div class="project-featured-copy">
-              <p class="number">PROJECT 01</p>
-              <h3>Does spending more lead to longer lives?</h3>
-              <p>
-                An exploration of healthcare spending, life
-                expectancy, regional disparities, and
-                diminishing returns.
-              </p>
-              <span class="project-open">EXPLORE PROJECT ↗</span>
-            </div>
-          </a>
-
-          <article class="project-empty">
-            <div>
-              <p class="number">PROJECT 02</p>
-              <h3>More coming soon.</h3>
-              <p>
-                More projects in business intelligence and
-                data visualization are in development.
-              </p>
+            <div class="project-stat">
+              <span class="project-stat-label">Average healthcare spending</span>
+              <strong>~$3.07K</strong>
             </div>
 
-            <p class="coming">IN PROGRESS</p>
-          </article>
+          </div>
+
+          <div class="project-bottom">
+            <span class="project-tools">
+              Power BI · Power Query · DAX
+            </span>
+
+            <span class="project-link">
+              Explore project <span>↗</span>
+            </span>
+          </div>
 
         </div>
-      </div>
-    </section>
+      </a>
 
-    <section class="contact-section" id="contact">
-      <div class="container">
-
-        <p class="section-label">04 / CONTACT</p>
-        <h2 class="section-heading">Let's connect.</h2>
-
-        <p class="section-intro">
-          I'm interested in opportunities to grow in business
-          intelligence, reporting, and data visualization.
+      <div class="other-projects">
+        <strong>More projects coming soon.</strong>
+        <p>
+          I'm continuing to build projects that demonstrate data cleaning,
+          analysis, visualization, and problem-solving.
         </p>
+      </div>
 
-        <!-- Replace # with your actual LinkedIn profile URL. -->
-        <a href="#" class="contact-link">
-          Connect on LinkedIn ↗
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-label">Let's connect</span>
+        <h2>Have a question or an opportunity?</h2>
+        <p>
+          I'm always happy to connect with people interested in data,
+          analytics, and business intelligence.
+        </p>
+      </div>
+
+      <div class="contact-links">
+        <!-- Replace the example email with your actual email address. -->
+        <a class="button" href="mailto:yanajewelgonzalez@example.com">
+          Email me ↗
         </a>
 
+        <a
+          class="button"
+          href="https://github.com/jewelgonzalezz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
       </div>
-    </section>
 
-  </main>
+      <p class="contact-email">
+        
+      </p>
 
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 Jewel · Data & Business Intelligence</span>
-      <span>Built with curiosity and purpose.</span>
+      <span>© 2026 Jewel. Built with curiosity and data.</span>
+      <a href="#home">Back to top ↑</a>
     </div>
   </footer>
 
